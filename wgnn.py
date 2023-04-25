@@ -338,7 +338,9 @@ if __name__ == '__main__':
     for eta3 in range(0,101,10):
         test_acc_list = []
         for run in range(10):
-            new_labels, new_train_mask = generate_new_train_set(logits_test_dict[run].clone().detach(), test_mask.clone().detach(), train_mask.clone().detach(), labels.clone().detach(), eta3)
+            # note to use original masks for that specific split to prevent information leakage.
+            data = get_data(args.dataset, split=run)
+            new_labels, new_train_mask = generate_new_train_set(logits_test_dict[run].clone().detach(), data.test_mask, data.train_mask, data['y'], eta3)
             _, test_acc, _, _, _,_= main(args, best_G_prime_list[run], run, new_labels, new_train_mask)
             test_acc_list.append(test_acc)
         avg = sum(test_acc_list)/len(test_acc_list)
