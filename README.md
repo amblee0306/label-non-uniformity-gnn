@@ -24,7 +24,9 @@ The following base models are includes:
 
 # Setup
 
-We used Python 3.8.13.
+First, unzip the data.zip file for the datasets required during training.
+
+We used Python 3.8.13. 
 
 The environment requirements are in the requirements.txt file and can be installed as follows:
 
