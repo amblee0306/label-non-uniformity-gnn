@@ -6,7 +6,8 @@ There are two separate modules (in the dashed blue boxes corresponding to the tw
 
 <img width="400" alt="scheme" src="https://user-images.githubusercontent.com/19768905/234184054-3cb10642-ba0b-43f8-a428-2c62f33b0be2.png">
 
-All models are trained for node classification task. The following datasets are included:
+All models are trained for node classification task. 
+The following datasets are included:
 * Cora
 * Citeseer
 * Pubmed
@@ -15,6 +16,11 @@ All models are trained for node classification task. The following datasets are 
 * Wisconsin
 * CS
 * Photo
+
+The following base models are includes:
+* MLP
+* GCN
+* GAT
 
 # Setup
 
@@ -25,17 +31,16 @@ The environment requirements are in the requirements.txt file and can be install
 ```conda create --name <envname> --file requirements.txt```
 
 # Usage
-**Step 1.** Generate the graph G' using the ```gen_gprime.py``` file (This serves as ${\color{blue} \text{Algo. 2}}$ in the figure above). We provided the G' that we obtained for cora and citeseer in the G_prime directory as samples.
 
-To specify the eta1 and eta2:
-* ```python gen_gprime.py --dataset=cora --model=gcn --n-hidden=16 --self-loop --save --early-stop --eta1=30 --eta2=40```
+We provide examples of training commands used to train WGNN for node classification.
 
-To search for the best eta1 and eta2 hyperparameters by running all combinations.
-* ```python gen_gprime.py --dataset=cora --model=gcn --n-hidden=16 --self-loop --save  --early-stop --all-combination```
+* Cora dataset (Test acc: 83.19 +/- 0.53) 
 
-**Step 2.** Use the generated pickle file (representing G') and logits from the plain model (trained on G) as inputs to train a model on new training sets and previously predicted labels (This serves as ${\color{blue} \text{Algo. 1}}$ in the figure above).
+```python wgnn.py --dataset=cora --model=gcn --n-hidden=16 --self-loop --early-stop --eta1=30 --eta2=40```
 
-* ```python main_algo1.py --model=gcn --eta3=60 --self-loop --gprime-file=<name_of_file>```
+To search for the best eta1 and eta2 hyperparameters for ${\color{blue} \text{Algo. 2}}$, we run all combinations using the ```--all-combination``` flag.
+
+```python wgnn.py --dataset=cora --model=gcn --n-hidden=16 --self-loop --early-stop --save --all-combination```
 
 # Citation
 
