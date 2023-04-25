@@ -25,7 +25,7 @@ The environment requirements are in the requirements.txt file and can be install
 ```conda create --name <envname> --file requirements.txt```
 
 # Usage
-**Step 1.** Generate the graph G' using the ```gen_gprime.py``` file (This serves as ${\color{blue} Algo.2}$ in the figure above). We provided the G' that we obtained for cora and citeseer in the G_prime directory as samples.
+**Step 1.** Generate the graph G' using the ```gen_gprime.py``` file (This serves as ${\color{blue} \text{Algo. 2}}$ in the figure above). We provided the G' that we obtained for cora and citeseer in the G_prime directory as samples.
 
 To specify the eta1 and eta2:
 * ```python gen_gprime.py --dataset=cora --model=gcn --n-hidden=16 --self-loop --save --early-stop --eta1=30 --eta2=40```
@@ -33,7 +33,7 @@ To specify the eta1 and eta2:
 To search for the best eta1 and eta2 hyperparameters by running all combinations.
 * ```python gen_gprime.py --dataset=cora --model=gcn --n-hidden=16 --self-loop --save  --early-stop --all-combination```
 
-**Step 2.** Use the generated pickle file (representing G') and logits from the plain model (trained on G) as inputs to train a model on new training sets and previously predicted labels (This serves as ${\color{blue} Algo.1}$ in the figure above).
+**Step 2.** Use the generated pickle file (representing G') and logits from the plain model (trained on G) as inputs to train a model on new training sets and previously predicted labels (This serves as ${\color{blue} \text{Algo. 1}}$ in the figure above).
 
 * ```python main_algo1.py --model=gcn --eta3=60 --self-loop --gprime-file=<name_of_file>```
 
