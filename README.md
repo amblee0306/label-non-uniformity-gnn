@@ -34,7 +34,7 @@ The environment requirements are in the requirements.txt file and can be install
 
 Alternatively,
 
-```pip install -r pip-requirements.txt``
+```pip install -r pip-requirements.txt```
 
 # Usage
 
