@@ -32,6 +32,10 @@ The environment requirements are in the requirements.txt file and can be install
 
 ```conda create --name <envname> --file requirements.txt```
 
+Alternatively,
+
+```pip install -r pip-requirements.txt``
+
 # Usage
 
 We provide examples of training commands used to train WGNN for node classification.
