@@ -52,5 +52,5 @@ To search for the best eta1 and eta2 hyperparameters for ${\color{blue} \text{Al
 
 If you find this code useful, please cite the following paper:
 
-*pending citation*
+F. Ji, S. H. Lee, H. Meng, K. Zhao, J. Yang, and W. P. Tay, “Leveraging label non-uniformity for node classification in graph neural networks,” in Proc. International Conference on Machine Learning, Hawaii, USA, Jul. 2023.
 
